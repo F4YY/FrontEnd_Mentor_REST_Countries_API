@@ -263,7 +263,7 @@ export const StyledCountryDetails = styled(Vstack)`
             margin: 10px 0 0 0;
         }
         span{
-            font-size: .9em;
+            font-size: 1em;
             font-weight: var(--light);
             color: ${props => props.theme === 'light' ? 'var(--Very-Dark-Blue-LightMode-Text)' : 'var(--White-Dark-Mode-Text-LightMode-Elements)'};
             margin: 10px 0 0 5px;
@@ -279,11 +279,17 @@ export const StyledCountryDetails = styled(Vstack)`
                 font-size: .95em;
             }
             span{
-                font-size: .85em;
+                font-size: .95em;
             }
         }
         @media screen and (max-width: 600px){
             margin: 40px 25px 0;
+            h2{
+                margin: 0 0 10px 2px;
+            }
+            p{
+                margin: 10px 0 0 2px;
+            }
         }
     }
     .border-countries{
@@ -332,7 +338,7 @@ export const StyledCountryDetails = styled(Vstack)`
         @media screen and (max-width:600px){
             justify-content: flex-start;
             align-items: flex-start;
-            margin: 40px 0 10px 0;
+            margin: 40px 0 10px 2px;
             ul{
                 margin: 20px 0 0 0;
             }

@@ -47,7 +47,7 @@ export const CountryDetail = (props) => {
     return (
       <Hstackflexi>
         <Vstack className='country-detail-info'>
-          <Hstack style={{alignItems: 'flex-start'}}>
+          <Hstack className='text-aligner'>
             <p>Native Name:</p>
             {props.selectedCountry.name.nativeName && Object.values(props.selectedCountry.name.nativeName)[0] ? (
               <span>{Object.values(props.selectedCountry.name.nativeName)[0].official}</span>
@@ -73,11 +73,11 @@ export const CountryDetail = (props) => {
             <p>Top Level Domain:</p>
             {props.selectedCountry.tld ? <span>{props.selectedCountry.tld}</span> : <span>-</span>}
           </Hstack>
-          <Hstack style={{alignItems: 'flex-start'}}>
+          <Hstack className='text-aligner'>
             <p>Currencies:</p>
             {props.selectedCountry.currencies && Object.values(props.selectedCountry.currencies)[0] ? <span>{Object.values(props.selectedCountry.currencies)[0].name}</span> : <span>-</span>}
           </Hstack>
-          <Hstack style={{alignItems: 'flex-start'}}>
+          <Hstack className='text-aligner'>
             <p>Languages:</p>
             {props.selectedCountry.languages && Object.values(props.selectedCountry.languages)[0] ? <span>{Object.values(props.selectedCountry.languages).join(', ')}</span> : <span>-</span>}
           </Hstack>

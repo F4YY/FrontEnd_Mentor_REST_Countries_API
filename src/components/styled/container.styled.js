@@ -88,6 +88,9 @@ export const Container = styled.div`
             margin: 20px 0 0;
         }
     }
+    .text-aligner{
+        align-items: flex-start;
+    }
     @media screen and (max-width: 600px){
         justify-content: center;
     }
