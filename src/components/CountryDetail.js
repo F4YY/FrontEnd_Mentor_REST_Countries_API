@@ -47,7 +47,7 @@ export const CountryDetail = (props) => {
     return (
       <Hstackflexi>
         <Vstack className='country-detail-info'>
-          <Hstack>
+          <Hstack style={{alignItems: 'flex-start'}}>
             <p>Native Name:</p>
             {props.selectedCountry.name.nativeName && Object.values(props.selectedCountry.name.nativeName)[0] ? (
               <span>{Object.values(props.selectedCountry.name.nativeName)[0].official}</span>
