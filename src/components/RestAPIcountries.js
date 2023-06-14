@@ -12,7 +12,7 @@ export const RestAPIcountries = () => {
   const [searchTerm, setSearchTerm] = React.useState('');
   const [regionFilter, setRegionFilter] = React.useState('');
   const [countries, setCountries] = React.useState([]);
-  const [selectedCountry, setSelectedCountry] = React.useState(null);
+  const [selectedCountry, setSelectedCountry] = React.useState(undefined);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -75,6 +75,7 @@ export const RestAPIcountries = () => {
     { value: 'Asia', label: 'Asia' },
     { value: 'Europe', label: 'Europe' },
     { value: 'Oceania', label: 'Oceania' },
+    { value: 'Antarctic', label: 'Antarctica'}
   ];
 
   return (
@@ -149,7 +150,7 @@ export const RestAPIcountries = () => {
                 <p>Region:</p><span>{country.region}</span>
               </Hstack>
               <Hstack>
-                <p>Capital:</p><span>{country.capital}</span>
+                <p>Capital:</p>{country.capital.length > 0 ? <span>{country.capital[0]}</span> : <span>-</span>}
               </Hstack>
             </CountryCard>
           ))}

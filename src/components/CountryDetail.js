@@ -43,12 +43,17 @@ export const CountryDetail = (props) => {
     );
   };
 
-  const CountryInfo = (props) => {
+  const CountryInfo = () => {
     return (
       <Hstackflexi>
         <Vstack className='country-detail-info'>
           <Hstack>
-            <p>Native Name:</p><span>{props.selectedCountry.name.nativeName[Object.keys(props.selectedCountry.name.nativeName)[0]].official}</span>
+            <p>Native Name:</p>
+            {props.selectedCountry.name.nativeName && Object.values(props.selectedCountry.name.nativeName)[0] ? (
+              <span>{Object.values(props.selectedCountry.name.nativeName)[0].official}</span>
+            ) : (
+              <span>-</span>
+            )}
           </Hstack>
           <Hstack>
             <p>Population:</p><span>{props.selectedCountry.population}</span>
@@ -57,21 +62,24 @@ export const CountryDetail = (props) => {
             <p>Region:</p><span>{props.selectedCountry.region}</span>
           </Hstack>
           <Hstack>
-            <p>Sub Region:</p><span>{props.selectedCountry.subregion}</span>
+            <p>Sub Region:</p>{props.selectedCountry.subregion ?<span>{props.selectedCountry.subregion}</span> : <span>-</span>}
           </Hstack>
           <Hstack>
-            <p>Capital:</p><span>{props.selectedCountry.capital}</span>
+            <p>Capital:</p>{props.selectedCountry.capital.length > 0 ? <span>{props.selectedCountry.capital[0]}</span> : <span>-</span>}
           </Hstack>
         </Vstack>
         <Vstack>
           <Hstack className='top-level'>
-            <p>Top Level Domain:</p><span>{props.selectedCountry.tld}</span>
+            <p>Top Level Domain:</p>
+            {props.selectedCountry.tld ? <span>{props.selectedCountry.tld}</span> : <span>-</span>}
           </Hstack>
           <Hstack>
-            <p>Currencies:</p><span>{Object.keys(props.selectedCountry.currencies)[0]}</span>
+            <p>Currencies:</p>
+            {props.selectedCountry.currencies && Object.values(props.selectedCountry.currencies)[0] ? <span>{Object.values(props.selectedCountry.currencies)[0].name}</span> : <span>-</span>}
           </Hstack>
           <Hstack>
-            <p>Languages:</p><span>{Object.values(props.selectedCountry.languages).join(', ')}</span>
+            <p>Languages:</p>
+            {props.selectedCountry.languages && Object.values(props.selectedCountry.languages)[0] ? <span>{Object.values(props.selectedCountry.languages).join(', ')}</span> : <span>-</span>}
           </Hstack>
         </Vstack>
       </Hstackflexi>
@@ -120,7 +128,7 @@ export const CountryDetail = (props) => {
               />
               {props.selectedCountry.borders && (
               <Hstack className='border-countries-none'>
-                <p>Border Countries:</p><span>No border countries</span>
+                <p>Border Countries:</p><span>-</span>
               </Hstack>
               )}
             </Vstack>

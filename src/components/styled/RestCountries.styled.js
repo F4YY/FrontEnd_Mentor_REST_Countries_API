@@ -241,6 +241,9 @@ export const StyledCountryDetails = styled(Vstack)`
         &:hover{
             background-color: ${props => props.theme === 'light' ? 'hsl(0, 0%, 85%)' : 'var(--Very-Dark-Blue-LightMode-Text)'};
         }
+        @media screen and (max-width: 1025px){
+            margin: 30px 0 0 20px;
+        }
     }
     h2{
         font-size: 2em;
@@ -264,6 +267,23 @@ export const StyledCountryDetails = styled(Vstack)`
             font-weight: var(--light);
             color: ${props => props.theme === 'light' ? 'var(--Very-Dark-Blue-LightMode-Text)' : 'var(--White-Dark-Mode-Text-LightMode-Elements)'};
             margin: 10px 0 0 5px;
+        }
+        @media screen and (max-width: 1025px){
+            justify-content: center;
+            margin: 40px 20px 0;
+            h2{
+                font-size: 1.7em;
+                margin: 0 0 10px 0;
+            }
+            p{
+                font-size: .95em;
+            }
+            span{
+                font-size: .85em;
+            }
+        }
+        @media screen and (max-width: 600px){
+            margin: 40px 25px 0;
         }
     }
     .border-countries{
@@ -306,6 +326,7 @@ export const StyledCountryDetails = styled(Vstack)`
             }
         }
         @media screen and (max-width: 1025px){
+            align-items: flex-start;
             margin: 20px 0 0 0;
         }
         @media screen and (max-width:600px){
@@ -325,6 +346,9 @@ export const StyledCountryDetails = styled(Vstack)`
         span{
             margin: 10px 0 0 5px;
         }
+        @media screen and (max-width: 1025px){
+            margin: 20px 0 0 0;
+        }
     }
 `
 export const FlagDetail = styled(Flag)`
@@ -338,12 +362,12 @@ export const FlagDetail = styled(Flag)`
     cursor: default;
     @media screen and (max-width:1025px){
         width: 40%;
-        height: 300px;
-        margin: 0 20px 0 0;
+        height: auto;
+        margin: 0 30px 0 0;
     }
     @media screen and (max-width:600px){
-        width: 90%;
-        height: 220px;
+        width: 100%;
+        height: auto;
         margin: 0 0 20px 0;
     }
 `
