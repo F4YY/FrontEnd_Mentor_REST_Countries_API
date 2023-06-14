@@ -83,6 +83,7 @@ export const Container = styled.div`
         }
     }
     .top-level{
+        align-items: flex-start;
         @media screen and (max-width: 600px){
             margin: 20px 0 0;
         }

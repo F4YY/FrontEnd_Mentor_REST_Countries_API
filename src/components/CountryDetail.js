@@ -73,11 +73,11 @@ export const CountryDetail = (props) => {
             <p>Top Level Domain:</p>
             {props.selectedCountry.tld ? <span>{props.selectedCountry.tld}</span> : <span>-</span>}
           </Hstack>
-          <Hstack>
+          <Hstack style={{alignItems: 'flex-start'}}>
             <p>Currencies:</p>
             {props.selectedCountry.currencies && Object.values(props.selectedCountry.currencies)[0] ? <span>{Object.values(props.selectedCountry.currencies)[0].name}</span> : <span>-</span>}
           </Hstack>
-          <Hstack>
+          <Hstack style={{alignItems: 'flex-start'}}>
             <p>Languages:</p>
             {props.selectedCountry.languages && Object.values(props.selectedCountry.languages)[0] ? <span>{Object.values(props.selectedCountry.languages).join(', ')}</span> : <span>-</span>}
           </Hstack>
