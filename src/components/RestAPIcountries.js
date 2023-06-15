@@ -12,11 +12,11 @@ export const RestAPIcountries = () => {
   const [searchTerm, setSearchTerm] = React.useState('');
   const [regionFilter, setRegionFilter] = React.useState('');
   const [countries, setCountries] = React.useState([]);
-  const [selectedCountry, setSelectedCountry] = React.useState(undefined);
+  const [selectedCountry, setSelectedCountry] = React.useState(null);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
   React.useEffect(() => {
-    fetch('https://restcountries.com/v3/all?fields=name,capital,flags,population,region,subregion,borders,currencies,languages')
+    fetch('https://restcountries.com/v3/all?fields=name,capital,tld,flags,population,region,subregion,borders,currencies,languages')
       .then(response => response.json())
       .then(data => setCountries(data));
   }, []);

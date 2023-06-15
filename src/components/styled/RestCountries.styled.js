@@ -252,7 +252,7 @@ export const StyledCountryDetails = styled(Vstack)`
         margin: 20px 0 10px 0;
     }
     .Country-detail{
-        margin: 40px 0 0 40px;
+        margin: 40px 20px 0 40px;
         h2{
             margin: 20px 0;
         }
