@@ -7,25 +7,26 @@ export const CountryDetail = (props) => {
   const handleToHome = () => {
     props.handleSelectedCountry(null);
   };
-  const [countryBorders, setCountryBorders] = React.useState([]);
+
+  const [borderCountryNames, setBorderCountryNames] = React.useState([]);
 
   React.useEffect(() => {
-    if (props.selectedCountry && props.selectedCountry.borders) {
-      const borderCountryCodes = props.selectedCountry.borders.join(';');
-      fetch(`https://restcountries.com/v3/alpha?codes=${borderCountryCodes}`)
-        .then(response => response.json())
-        .then(data => setCountryBorders(data));
-    }
-  }, [props.selectedCountry]);
-
-  const handleBorderClick = (border) => {
-    fetch(`https://restcountries.com/v3/alpha/${border}`)
-      .then(response => response.json())
-      .then(data => {
-        if (data.length > 0) {
-          props.handleSelectedCountry(data[0]);
+    const fetchBorderCountryNames = async () => {
+      const borderCountryNames = await Promise.all(props.selectedCountry.borders.map(async (borderName) => {
+        const response = await fetch(`https://restcountries.com/v3.1/alpha/${borderName}`);
+        if (response.ok) {
+          const borderCountryData = await response.json();
+          return borderCountryData[0].name.common;
         }
-      });
+      }));
+      setBorderCountryNames(borderCountryNames);
+    };
+    fetchBorderCountryNames();
+  }, [props.selectedCountry.borders]);
+
+  const handleBorderClick = (borderName) => {
+    const selectedCountry = props.countries.find((country) => country.name.common === borderName);
+    props.handleSelectedCountry(selectedCountry);
   };
 
   const BackButton = () => {
@@ -88,7 +89,7 @@ export const CountryDetail = (props) => {
 
   return (
     <StyledCountryDetails theme={props.theme}>
-      {props.selectedCountry && countryBorders.length > 0 ? (
+      {props.selectedCountry && props.selectedCountry.borders.length > 0 ? (
         <>
           <BackButton/>
           <Hstackflexi className='Country-detail'>
@@ -103,11 +104,9 @@ export const CountryDetail = (props) => {
               <Hstackflexi className='border-countries'>
                 <p>Border Countries:</p>
                 <ul>
-                  {props.selectedCountry.borders.map(border => (
-                    <li key={border}>
-                      <button onClick={() => handleBorderClick(border)}>
-                        {border}
-                      </button>
+                  {borderCountryNames.map((borderName) => (
+                    <li key={borderName}>
+                      <button onClick={() => handleBorderClick(borderName)}>{borderName}</button>
                     </li>
                   ))}
                 </ul>

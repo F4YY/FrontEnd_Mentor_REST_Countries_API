@@ -161,6 +161,7 @@ export const RestAPIcountries = () => {
             theme={theme}
             selectedCountry={selectedCountry}
             handleSelectedCountry={handleSelectedCountry}
+            countries={countries}
         />)
       }
       <footer>

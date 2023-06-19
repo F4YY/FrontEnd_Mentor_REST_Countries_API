@@ -295,7 +295,7 @@ export const StyledCountryDetails = styled(Vstack)`
     .border-countries{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         margin: 80px 0 0 0;
         p{
             font-size: 1em;
@@ -320,7 +320,7 @@ export const StyledCountryDetails = styled(Vstack)`
             margin: 0;
         }
         button{
-            max-width: 80px;
+            width: auto;
             height: auto;
             border-radius: 2px;
             color: ${props => props.theme === 'light' ? 'var(--Very-Dark-Blue-LightMode-Text)' : 'var(--White-Dark-Mode-Text-LightMode-Elements)'};
