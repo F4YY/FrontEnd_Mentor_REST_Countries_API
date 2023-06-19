@@ -27,6 +27,14 @@ export const CountryDetail = (props) => {
   const handleBorderClick = (borderName) => {
     const selectedCountry = props.countries.find((country) => country.name.common === borderName);
     props.handleSelectedCountry(selectedCountry);
+    scrollToTop();
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   const BackButton = () => {
