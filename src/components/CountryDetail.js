@@ -22,12 +22,12 @@ export const CountryDetail = (props) => {
       setBorderCountryNames(borderCountryNames);
     };
     fetchBorderCountryNames();
+    scrollToTop();
   }, [props.selectedCountry.borders]);
 
   const handleBorderClick = (borderName) => {
     const selectedCountry = props.countries.find((country) => country.name.common === borderName);
     props.handleSelectedCountry(selectedCountry);
-    scrollToTop();
   };
 
   const scrollToTop = () => {
