@@ -16,9 +16,13 @@ export const RestAPIcountries = () => {
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
   React.useEffect(() => {
+    console.log('useEffect is running');
     fetch('https://restcountries.com/v3/all?fields=name,capital,tld,flags,population,region,subregion,borders,currencies,languages')
       .then(response => response.json())
-      .then(data => setCountries(data));
+      .then(data => {
+        console.log('setting countries');
+        setCountries(data);
+      });
   }, []);
 
   const handleSearch = (event) => {

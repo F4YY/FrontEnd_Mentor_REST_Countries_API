@@ -327,6 +327,7 @@ export const StyledCountryDetails = styled(Vstack)`
             background-color: ${props => props.theme === 'light' ? 'var(--White-Dark-Mode-Text-LightMode-Elements)' : 'var(--Dark-Blue-DarkMode-Elements)'};
             padding:5px 10px;
             margin:0 0 0 10px;
+            box-shadow:${props => props.theme === 'light' ? '0 2px 2px 3px rgba(0,0,0,0.03)' : '0px 2px 2px 2px rgba(0,0,0,0.05)'};
             &:hover{
                 background-color: ${props => props.theme === 'light' ? 'hsl(0, 0%, 85%)' : 'var(--Very-Dark-Blue-LightMode-Text)'};;
             }
@@ -364,7 +365,7 @@ export const FlagDetail = styled(Flag)`
     object-fit: fill;
     object-position: center;
     margin: 0 110px 0 0;
-    box-shadow: 0 2px 2px 5px rgba(0,0,0,0.03);
+    box-shadow: ${props => props.theme === 'light' ? '0 2px 2px 5px rgba(0,0,0,0.03)' : '0px 2px 2px 5px rgba(255,255,255,0.03)'};
     cursor: default;
     @media screen and (max-width:1025px){
         width: 40%;
